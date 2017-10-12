@@ -24,14 +24,21 @@ function addMovie( movie ){
 var newMovie = {title: "The Terminator", year: "1994", length: 130, rating: "8.0", genre: "sci-fi"};
 console.log(addMovie(newMovie));
 
-function movieByRating(){
-  //add code
-}
 
+
+function movieByRating(){
+  movieList.sort(function(x, y){
+    return (y.rating)-(x.rating);
+  });
+  return movieList;
+}
 console.log(movieByRating());
 
 function findByTitle( title ){
-  //add code
+  var list = [];
+  movieList.map(function(v,i){
+    if(v.title.toLowerCase().includes(title)) list.push(v);
+  });
+  return list;
 }
-
 console.log(findByTitle("matrix"));
